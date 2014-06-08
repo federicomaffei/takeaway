@@ -1,11 +1,18 @@
+require 'rubygems'
+require 'twilio-ruby'
+
 class Takeaway
+
+	ACCOUNT_SID = 'AC97d26245bd7ae2ce002f206c85927024'
+	AUTH_TOKEN = '5707512e34f45d0fb983ff97d4c1faf3'
 
 
 	def initialize()
 
 		@menu = {'Pho'=>7, 'Cha ca'=>10, 'Banh xeo'=>8, 'Cao lau'=>12, 'Rau muong'=>4, 'Nem ran'=>9, 'Goi cuon'=>5}
 		@payment = 0
-	
+		@client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+
 	end
 
 	def menu
@@ -37,7 +44,15 @@ class Takeaway
 	def checkout(customer_total)
 
 		raise RuntimeError, "the total price is not correct" if customer_total != @payment
-	
+		send_text
+
+	end
+
+	def send_text
+
+		message = @client.account.messages.create(:body => "Thank you! Your order was placed and will be delivered before #{time}", :to => "+447721163161", :from => "+441280830048")
+		puts message.sid
+
 	end
 
 end

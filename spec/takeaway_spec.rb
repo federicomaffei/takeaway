@@ -12,7 +12,7 @@ describe Takeaway do
 
 		end
 
-		it 'contains a dish named Pho priced' do
+		it 'contains a dish named Pho' do
 
 			expect(takeaway.menu.include?('Pho')).to be_true
 
@@ -44,8 +44,18 @@ describe Takeaway do
 
 			takeaway.order('Pho', 2)
 			takeaway.order('Cha ca', 1)
-			lambda {takeaway.checkout(20)}.should raise_error(RuntimeError)
+			lambda {takeaway.checkout(20)}.should raise_error(RuntimeError, "the total price is not correct")
 
 		end
+
+		it 'sends a text message to the user if the payment is correct' do
+
+			takeaway.order('Pho', 2)
+			takeaway.order('Cha ca', 1)
+			expect(takeaway).to receive(:send_text)
+			takeaway.checkout(24)
+
+		end
+
 	end
 end
