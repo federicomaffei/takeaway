@@ -29,6 +29,13 @@ describe Takeaway do
 
 		end
 
+		it 'updates the bill at any order placed' do
+
+			takeaway.order('Pho', 2)
+			takeaway.order('Cha ca', 1)
+			expect(takeaway.payment).to eq 24
+		end
+
 	end
 
 end
