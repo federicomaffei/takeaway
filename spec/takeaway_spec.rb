@@ -33,9 +33,19 @@ describe Takeaway do
 
 			takeaway.order('Pho', 2)
 			takeaway.order('Cha ca', 1)
-			expect(takeaway.payment).to eq 24
+			expect(takeaway.payment_due).to eq 24
 		end
 
 	end
 
+	context 'checkout' do
+
+		it 'check the total given by the customer before finalizing the order' do
+
+			takeaway.order('Pho', 2)
+			takeaway.order('Cha ca', 1)
+			lambda {takeaway.checkout(20)}.should raise_error(RuntimeError)
+
+		end
+	end
 end

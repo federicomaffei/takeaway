@@ -1,5 +1,6 @@
 class Takeaway
 
+
 	def initialize()
 
 		@menu = {'Pho'=>7, 'Cha ca'=>10, 'Banh xeo'=>8, 'Cao lau'=>12, 'Rau muong'=>4, 'Nem ran'=>9, 'Goi cuon'=>5}
@@ -27,11 +28,16 @@ class Takeaway
 
 	end
 
-	def payment
+	def payment_due
 
 		@payment
 
 	end
 
+	def checkout(customer_total)
+
+		raise RuntimeError, "the total price is not correct" if customer_total != @payment
+	
+	end
 
 end
