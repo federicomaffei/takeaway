@@ -6,15 +6,26 @@ describe Takeaway do
 
 	context 'menu' do
 
-		it 'displays a menu with 8 items' do
+		it 'displays a menu with 7 items' do
 
-			expect(takeaway.menu.length).to eq 8
+			expect(takeaway.menu.length).to eq 7
 
 		end
 
-		it 'contains a dish named Pho priced 7' do
+		it 'contains a dish named Pho priced' do
 
-			expect(takeaway.menu.include?({dish: 'Pho', price: '7'})).to be_true
+			expect(takeaway.menu.include?('Pho')).to be_true
+
+		end
+
+	end
+
+	context 'order' do
+
+		it 'allows to add dishes to the order list by name and quantity' do
+
+			takeaway.order('Pho', 2)
+			expect(takeaway.order_list).to eq ['Pho', 'Pho']
 
 		end
 
