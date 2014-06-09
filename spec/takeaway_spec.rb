@@ -33,7 +33,7 @@ describe Takeaway do
 
 			takeaway.order('Pho', 2)
 			takeaway.order('Cha ca', 1)
-			expect(takeaway.payment_due).to eq 24
+			expect(takeaway.payment).to eq 24
 		end
 
 	end
