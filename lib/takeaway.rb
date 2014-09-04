@@ -16,7 +16,7 @@ class Takeaway
 	def order(dish_name, quantity)
 		quantity.times {order_list << dish_name} if @menu.key?(dish_name)
 		@payment = @payment + @menu[dish_name] * quantity
-	end
+	end	
 
 	def order_list
 		@order_list ||= []

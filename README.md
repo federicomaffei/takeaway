@@ -1,7 +1,7 @@
 Takeaway
 ====================
 
-Takeaway Challenge is the Week 4 Friday Challenge I did at [Makers Academy](http://www.makersacademy.com).
+Takeaway is the Week 4 Friday Challenge I did at [Makers Academy](http://www.makersacademy.com).
 
 Here's the challenge:
 
