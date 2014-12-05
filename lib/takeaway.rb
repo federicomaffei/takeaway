@@ -2,10 +2,12 @@ require 'twilio-ruby'
 
 class Takeaway
 
+
+
 	attr_accessor :payment, :menu
 
-	ACCOUNT_SID = 'AC97d26245bd7ae2ce002f206c85927024'
-	AUTH_TOKEN = '5707512e34f45d0fb983ff97d4c1faf3'
+	ACCOUNT_SID = open('../assets/.api_key').read()
+	AUTH_TOKEN = open('../assets/.auth_token').read()
 
 	def initialize
 		@menu = {'Pho'=>7, 'Cha ca'=>10, 'Banh xeo'=>8, 'Cao lau'=>12, 'Rau muong'=>4, 'Nem ran'=>9, 'Goi cuon'=>5}
