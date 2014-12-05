@@ -6,8 +6,8 @@ class Takeaway
 
 	attr_accessor :payment, :menu
 
-	ACCOUNT_SID = open('../assets/.api_key').read()
-	AUTH_TOKEN = open('../assets/.auth_token').read()
+	ACCOUNT_SID = open('./assets/.api_key').read()
+	AUTH_TOKEN = open('./assets/.auth_token').read()
 
 	def initialize
 		@menu = {'Pho'=>7, 'Cha ca'=>10, 'Banh xeo'=>8, 'Cao lau'=>12, 'Rau muong'=>4, 'Nem ran'=>9, 'Goi cuon'=>5}
